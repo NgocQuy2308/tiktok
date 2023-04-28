@@ -153,7 +153,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/1971e99be0d67160f34f39fb1d66a0e5~c5_300x300.webp?x-expires=1680505200&x-signature=lH%2F0wEZH3vDxkhT5O69847M%2FQJA%3D"
+                                src="https://w7.pngwing.com/pngs/134/862/png-transparent-logo-tiktok.png"
                                 alt="Nguyen Van A"
                             />
                         ) : (
