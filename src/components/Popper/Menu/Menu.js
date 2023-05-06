@@ -36,6 +36,14 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
         });
     };
 
+    const handleBack = () => {
+        setNav((prev) => prev.slice(0, prev.length - 1));
+    }
+
+    const handleRestMenu = () => {
+        setNav((prev) => prev.slice(0, 1))
+    }
+
     return (
         <Tippy
             offset={[10, 10]}
@@ -49,16 +57,14 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
                         {nav.length > 1 && (
                             <Header
                                 title={current.title}
-                                onBack={() => {
-                                    setNav((prev) => prev.slice(0, prev.length - 1));
-                                }}
+                                onBack={handleBack}
                             />
                         )}
                         <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
-            onHidden={() => setNav((prev) => prev.slice(0, 1))}
+            onHidden={handleRestMenu}
         >
             {children}
         </Tippy>
