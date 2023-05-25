@@ -1,0 +1,127 @@
+.wrapper {
+    min-width: 420px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    line-height: 21px;
+    min-width: 692px;
+    padding: 20px 0;
+    position: relative;
+    align-items: flex-start;
+
+}
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.main-content {
+    margin-left: 12px;
+    width: 624px;
+    flex: 1 1 624px;
+}
+
+.info-content {
+    margin-right: 114px;
+}
+
+.user {
+    display: flex;
+    max-width: 510px;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.nick-name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-block;
+    line-height: 28px;
+}
+
+.follow-btn {
+    position: absolute;
+    left: 604px;
+    top: 20px;
+    min-width: 88px;
+    height: 28px;
+    min-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+.video-desc{
+    display: flex;
+    font-size: 16px;
+    line-height: 22px;
+    word-break: break-word;
+    flex-wrap: wrap;
+}
+
+.text-video {
+    display: inline;
+    font-weight: 400;
+}
+
+.hashtag-video {
+    display: flex;
+
+    &:hover {
+        text-decoration: underline ;
+    }
+}
+
+.label {
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.music {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    &:hover {
+        text-decoration: underline ;
+    }
+}
+
+.video-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.video {
+    max-width: 336px;
+    max-height: 600px;
+    border-radius: 6px;
+}
+
+.action-video {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.icon {
+    position: absolute;
+    top: 14px;
+}

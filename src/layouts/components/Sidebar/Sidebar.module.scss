@@ -1,4 +1,18 @@
 .wrapper {
-    width: 232px;
+    width: 240px;
     padding: 20px 0 26px 8px;
+    max-height: 900px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &:hover::-webkit-scrollbar {
+        display: inline;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
+
+.wrapper::-webkit-scrollbar {
+    width: 6px ;
+  }

@@ -4,6 +4,7 @@ import Menu, { MenuItem } from '~/layouts/components/Sidebar/Menu';
 import config from '~/config';
 import { HomeIcon, HomeActiveIcon, GroupUserIcon, GroupUserActiveIcon, LiveActiveIcon, LiveIcon } from '~/components/Icons';
 import SuggestedAccount from '~/components/SuggestedAccount/SuggestedAccount';
+import Trending from '~/components/Trending/Trending';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +18,9 @@ function Sidebar() {
             </Menu>
             <SuggestedAccount label="Tài khoản được đề xuất" />
             <SuggestedAccount label="Các tài khoản đang follow" />
+            <Trending />
+            <Trending />
+            <Trending />
         </aside>
     );
 }

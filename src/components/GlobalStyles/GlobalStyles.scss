@@ -2,8 +2,8 @@
 
 :root {
     --primary: #fe2c55;
-    --black: #000;
-    --white: #fff;
+    --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
     --text-color: #161823;
     --font-family: 'ProximaNova', sans-serif;
 
@@ -58,9 +58,11 @@ input,
     border: none;
 }
 
-a {
+a[href],
+a[to] {
     color: var(--text-color);
     text-decoration: none;
+    opacity: 1;
 }
 
 // Fonts emmbeded

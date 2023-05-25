@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 0 12px;
+    cursor: pointer;
 }
 
 .avatar {
@@ -28,9 +29,11 @@
 
 .nick-name {
     font-style: 18px;
+    cursor: pointer;
 }
 
 .check {
+    margin-left: 4px;
     font-style: 14px;
     color: #20d5ec;
     margin-top: 4px;
@@ -38,6 +41,7 @@
 
 .name {
     font-style: 14px;
+    cursor: pointer;
 }
 
 .analytics {

@@ -1,5 +1,21 @@
+
+import Content from "~/layouts/components/Content/Content";
+
+
 function Home() {
-    return <h2>Home page</h2>;
+    return (
+
+        <div>
+            <Content />
+            <Content />
+            <Content />
+            <Content />
+            <Content />
+            <Content />
+            <Content />
+            <Content />
+        </div>
+    );
 }
 
 export default Home;
