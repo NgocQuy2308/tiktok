@@ -32,7 +32,7 @@ function Search() {
 
             const result = await searchServices.search(debouncedValue);
             setSearchResults(result);
-
+            
             setLoading(false);
         };
         fetchApi();

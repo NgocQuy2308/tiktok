@@ -1,11 +1,11 @@
 import * as httpRequest from '~/untils/httpRequest';
- 
-export const search = async (q, type='less') => {
+
+export const video = async (type='for-you', page='5') => {
     try {
-        const res = await httpRequest.get('users/search', {
+        const res = await httpRequest.get('videos', {
             params: {
-                q,
                 type,
+                page,
             },
         });
         return res.data

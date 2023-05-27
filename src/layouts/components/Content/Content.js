@@ -2,31 +2,39 @@ import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
 import { CommentIcon, HeartIcon, MusicIcon, ShareIcon, SaveIcon } from '~/components/Icons';
 import Button from '~/components/Button/Button';
-import video from '~/assets/Video';
 import Interact from './Interact/Interact';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import images from '~/assets/images';
+
 
 const cx = classNames.bind(styles);
 
-function Content() {
+function Content({ data, user}) {
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
+
                 <img
                     className={cx('avatar')}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/9d9505b3b89096928e37f883abb28f44~c5_100x100.jpeg?x-expires=1683705600&x-signature=CnrOC0nQ9qzFl%2FsKIXDlzYgR0PA%3D"
-                    alt=""
+                    src={user.avatar || images.noImage} 
+                    alt="avatar"
                 />
                 <div className={cx('main-content')}>
                     <div className={cx('info-content')}>
                         <div className={cx('user')}>
-                            <h2 className={cx('user-name')}>Kayler</h2>
-                            <span className={cx('nick-name')}>Trần Ngọc Quý</span>
+                            <h2 className={cx('user-name')}>
+                                {user.nickname}
+                                {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
+                            </h2>
+                            <span className={cx('nick-name')}>{user.first_name} {user.last_name}</span>
                         </div>
                         <Button className={cx('follow-btn')} outline>
                             Follow
                         </Button>
                         <div className={cx('video-desc')}>
-                            <span className={cx('text-video')}>Tiền có mua được hạnh phúc</span>
+                            <span className={cx('text-video')}>{data.description}</span>
                             <a className={cx('hashtag-video')} href="/">
                                 <strong className={cx('label')}>#mackedoi</strong>
                             </a>
@@ -49,19 +57,20 @@ function Content() {
                         <div className={cx('music')}>
                             <a href="/">
                                 <MusicIcon />
-                                Mơ
+                                {data.music}
                             </a>
                         </div>
                     </div>
                     <div className={cx('video-wrapper')}>
-                        <video className={cx('video')} controls>
-                            <source src={video.testVideo} />
-                        </video>
+                            <video key={data.id} className={cx('video')} controls loop muted playsInline>
+                                <source src={data.file_url} />
+                            </video>
+                        {/* <source src={data.file_url} /> */}
                         <div className={cx('action-video')}>
-                            <Interact Icon={<HeartIcon className={cx('icon')}/>}>213k</Interact>
-                            <Interact Icon={<CommentIcon className={cx('icon')}/>}>23k</Interact>
-                            <Interact Icon={<SaveIcon className={cx('icon')}/>}>21k</Interact>
-                            <Interact Icon={<ShareIcon className={cx('icon')}/>}>2136</Interact>
+                            <Interact Icon={<HeartIcon className={cx('icon')} />}>{data.likes_count}</Interact>
+                            <Interact Icon={<CommentIcon className={cx('icon')} />}>{data.comments_count}</Interact>
+                            <Interact Icon={<SaveIcon className={cx('icon')} />}>{data.shares_count}</Interact>
+                            <Interact Icon={<ShareIcon className={cx('icon')} />}>{data.shares_count}</Interact>
                         </div>
                     </div>
                 </div>

@@ -1,19 +1,24 @@
-
-import Content from "~/layouts/components/Content/Content";
-
+import { useEffect, useState } from 'react';
+import * as videoContent from '~/services/video';
+import Content from '~/layouts/components/Content/Content';
 
 function Home() {
-    return (
+    const [videoValue, setVideoValue] = useState([]);
 
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await videoContent.video();
+            setVideoValue(result);
+            console.log(result);
+        };
+        fetchApi();
+    }, []);
+    
+    return (
         <div>
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
+            {videoValue.map((result) => (
+                <Content key={result.id} data={result} meta={result.meta} user={result.user} />
+            ))}
         </div>
     );
 }

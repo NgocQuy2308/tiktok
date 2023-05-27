@@ -6,9 +6,11 @@ import { HomeIcon, HomeActiveIcon, GroupUserIcon, GroupUserActiveIcon, LiveActiv
 import SuggestedAccount from '~/components/SuggestedAccount/SuggestedAccount';
 import Trending from '~/components/Trending/Trending';
 
+
 const cx = classNames.bind(styles);
 
-function Sidebar() {
+    function Sidebar () {
+
     return (
         <aside className={cx('wrapper')}>
             <Menu>
@@ -16,8 +18,8 @@ function Sidebar() {
                 <MenuItem title="Đang Follow" icon={<GroupUserIcon />} activeIcon={<GroupUserActiveIcon />} to={config.routes.following} />
                 <MenuItem title="LIVE" icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} to={config.routes.live} />
             </Menu>
-            <SuggestedAccount label="Tài khoản được đề xuất" />
-            <SuggestedAccount label="Các tài khoản đang follow" />
+                <SuggestedAccount label="Tài khoản được đề xuất"  />
+                <SuggestedAccount label="Tài khoản đang follwing" />
             <Trending />
             <Trending />
             <Trending />
