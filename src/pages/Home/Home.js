@@ -9,11 +9,10 @@ function Home() {
         const fetchApi = async () => {
             const result = await videoContent.video();
             setVideoValue(result);
-            console.log(result);
         };
         fetchApi();
     }, []);
-    
+
     return (
         <div>
             {videoValue.map((result) => (

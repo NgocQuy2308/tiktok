@@ -8,22 +8,20 @@ import UserItem from './UserItem';
 const cx = classNames.bind(styles);
 
 function SuggestedAccount({ label }) {
+    const [userValue, setUserValue] = useState([]);
 
-        const [userValue, setUserValue] = useState([]);
-    
-        useEffect(() => {
-            const fetchApi = async () => {
-                const result = await users.user();
-                setUserValue(result);
-                console.log(result);
-            };
-            fetchApi();
-        }, []);
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await users.user();
+            setUserValue(result);
+        };
+        fetchApi();
+    }, []);
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
             {userValue.map((result) => (
-                <UserItem key={result.id} data={result}/>
+                <UserItem key={result.id} data={result} />
             ))}
             <p className={cx('more-btn')}>Xem tất cả</p>
         </div>
