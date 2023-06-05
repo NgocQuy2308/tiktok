@@ -6,10 +6,51 @@ import Interact from './Interact/Interact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images';
+import { useEffect, useState, useRef } from 'react'
+import useElementOnScreen from '~/components/useElementOnScreen/useElementOnScreen';
 
 const cx = classNames.bind(styles);
 
 function Content({ data, user }) {
+    const [isActive, setIsActive] = useState(false);
+
+    const [playing, setPlaying] = useState(false);
+    const videoRef = useRef();
+    const options = {
+        root: null,
+        rootMargin: '-10px',
+        threshold: 0.5
+    }
+    const isVisible = useElementOnScreen(options, videoRef)
+    // // const onVideoClick = () => {
+    // //   if (playing) {
+    // //     videoRef.current.pause();
+    // //     setPlaying(!playing);
+    // //   } else {
+    // //     videoRef.current.play();
+    // //     setPlaying(!playing);
+    // //   }
+    // // };
+    useEffect(() => {
+      if (isVisible) {
+        if (!playing) {        
+          videoRef.current.play();
+          setPlaying(true)
+        }
+      }
+      else {
+        if (playing) {        
+          videoRef.current.pause();
+          setPlaying(false)
+        }
+      }
+    }, [isVisible])
+
+    const activeState = () => {
+        // 👇️ toggle isActive state on click
+        setIsActive((current) => !current);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -57,11 +98,14 @@ function Content({ data, user }) {
                         </div>
                     </div>
                     <div className={cx('video-wrapper')}>
-                        <video key={data.id} className={cx('video')} controls loop muted playsInline>
-                            <source src={data.file_url} />
+                        <video key={data.id} className={cx('video')} controls loop preload="true" ref={videoRef} src={data.file_url} muted>
                         </video>
                         <div className={cx('action-video')}>
-                            <Interact Icon={<HeartIcon className={cx('icon')} />} Active>
+                            <Interact
+                                Icon={<HeartIcon className={cx('icon')} />}
+                                isActive={isActive}
+                                onActive={activeState}
+                            >
                                 {data.likes_count}
                             </Interact>
                             <Interact Icon={<CommentIcon className={cx('icon')} />}>{data.comments_count}</Interact>
