@@ -1,7 +1,9 @@
 import routes from "./routes";
+import shares from "./shares";
 
 const config = {
-    routes
+    routes,
+    shares
 }
 
 

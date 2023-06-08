@@ -14,8 +14,8 @@
     padding: 20px 0;
     position: relative;
     align-items: flex-start;
-
 }
+
 .avatar {
     width: 56px;
     height: 56px;
@@ -73,7 +73,7 @@
     font-weight: 600;
 }
 
-.video-desc{
+.video-desc {
     display: flex;
     font-size: 16px;
     line-height: 22px;
@@ -90,7 +90,7 @@
     display: flex;
 
     &:hover {
-        text-decoration: underline ;
+        text-decoration: underline;
     }
 }
 
@@ -106,7 +106,7 @@
     margin-top: 4px;
     margin-bottom: 12px;
     &:hover {
-        text-decoration: underline ;
+        text-decoration: underline;
     }
 }
 
@@ -114,12 +114,6 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-}
-
-.video {
-    max-width: 336px;
-    max-height: 600px;
-    border-radius: 6px;
 }
 
 .action-video {
@@ -131,4 +125,36 @@
 .icon {
     position: absolute;
     top: 14px;
+}
+
+// video share
+
+.interactive-item {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.item-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    margin: 8px 0 6px 0;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 50%;
+}
+
+.icon {
+    position: absolute;
+    top: 14px;
+}
+
+.item-count {
+    color: #7e7e81;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: center;
 }

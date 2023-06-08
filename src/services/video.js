@@ -1,6 +1,6 @@
 import * as httpRequest from '~/untils/httpRequest';
 
-export const video = async (type='for-you', page='5') => {
+export const video = async (page, type = 'for-you') => {
     try {
         const res = await httpRequest.get('videos', {
             params: {

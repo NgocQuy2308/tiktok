@@ -1,0 +1,141 @@
+.video {
+    display: flex;
+    max-width: 336px;
+    max-height: 600px;
+    border-radius: 6px;
+
+    &:hover ~.report-btn {
+        visibility: visible;
+    }
+}
+
+// Video control
+.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+
+    position: absolute;
+    bottom: 24px;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.report-btn {
+    top: 130px;
+    right: 290px;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    padding: 4px 0;
+    font-weight: 600;
+    color: white;
+    visibility: hidden;
+
+    span {
+        margin-left: 4px;
+    }
+}
+
+.play-control {
+    left: 70px;
+}
+
+.volume-btn {
+    right: 290px;
+
+    &:hover ~ .volume-control {
+        visibility: visible;
+    }
+}
+.mute {
+    opacity: 1;
+}
+
+.volume-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 24px;
+    height: 64px;
+    margin: 0 8px;
+    border-radius: 32px;
+    background: rgba(22, 24, 35, 0.34);
+    transform: rotate(180deg);
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+
+    position: absolute;
+    bottom: 60px;
+    right: 290px;
+    z-index: 2;
+    visibility: hidden;
+
+    &:hover {
+        visibility: visible;
+    }
+}
+
+.volume-bar {
+    width: 2px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        inset: -11px -19px;
+    }
+}
+
+.volume-dot {
+    position: absolute;
+    inset: 0;
+    bottom: initial;
+    border-radius: inherit;
+    color: white;
+    background-color: currentColor;
+    height: 50%;
+    max-height: 100%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 12px;
+        height: 12px;
+        transform: translate(-50%, 50%);
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+}
+
+@media (max-width: 767px) {
+    .player-space {
+        &.vertical {
+            height: calc(380px + (100vw - 480px) / 288 * 20);
+        }
+        &.horizontal {
+            width: calc(380px + ((100vw - 480px) / 288) * 20);
+        }
+    }
+}
+
+@media (max-width: 479px) {
+    .player-space {
+        &.vertical {
+            height: calc(100vw - 32px - 60px);
+            width: auto;
+        }
+    }
+}

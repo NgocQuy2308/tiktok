@@ -1,16 +1,9 @@
 import classNames from 'classnames/bind';
-// import { useState } from 'react';
 import styles from './Interact.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Interact({ children, Icon, onActive, isActive }) {
-    // const [isActive, setIsActive] = useState(false);
-
-    // const activeState = () => {
-    //     // 👇️ toggle isActive state on click
-    //     setIsActive((current) => !current);
-    // };
+function Interact({ children, Icon, isActive, onActive }) {
 
     return (
         <button className={cx('wrapper')} onClick={onActive}>
