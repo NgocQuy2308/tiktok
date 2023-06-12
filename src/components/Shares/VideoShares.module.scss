@@ -1,25 +1,27 @@
-.share-wrapper {
+.wrapper {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     padding: 11px 16px;
     margin: 0px 3px 0px 4px;
     position: relative;
-
-    .share-item {
+    
+    .item {
         display: flex;
+        font-size: 20px;
         justify-content: flex-start;
         width: 100%;
-        padding: 0 16px;
+        font-weight: 600;
+        padding: 11px 16px;
         margin-left: 0;
-
+    
         &:hover {
-            background-color: var(--background-gray-color);
+            background-color: rgba(22, 24, 35, 0.03);;
         }
     }
 }
 
-.share-popper {
+.popper {
     padding-top: 0px;
     padding-right: 3px;
 }
@@ -41,7 +43,7 @@
     }
 }
 
-.share-list {
+.list {
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
@@ -60,7 +62,7 @@
     }
 }
 
-.share-item-icon {
+.item-icon {
     font-size: 26px;
     margin-right: 4px;
 }

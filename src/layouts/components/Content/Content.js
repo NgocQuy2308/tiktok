@@ -3,6 +3,7 @@ import styles from './Content.module.scss';
 import { CommentIcon, HeartIcon, MusicIcon, ShareIcon, SaveIcon } from '~/components/Icons';
 import Button from '~/components/Button/Button';
 import Interact from './Interact/Interact';
+import Save from './Save/Save';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images';
@@ -95,9 +96,9 @@ const Content = forwardRef(({ videoId, videoInfo, isInView }, ref) => {
                                 {likesCount}
                             </Interact>
                             <Interact Icon={<CommentIcon className={cx('icon')} />}>{commentsCount}</Interact>
-                            <Interact Icon={<SaveIcon className={cx('icon')} />} isActive={isSave} onActive={saveState}>
+                            <Save Icon={<SaveIcon className={cx('icon')} />} isActive={isSave} onActive={saveState}>
                                 {sharesCount}
-                            </Interact>
+                            </Save>
                             <VideoShare>
                                 <label className={cx('interactive-item')}>
                                     <button className={cx('item-icon')}>

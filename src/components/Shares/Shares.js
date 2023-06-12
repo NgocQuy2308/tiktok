@@ -28,15 +28,15 @@ function VideoShare({ children }) {
     };
 
     const handleRenderItem = (attrs) => (
-        <div className={cx('share-wrapper')} tabIndex="-1" {...attrs}>
-            <PopperWrapper className={cx('share-popper')}>
+        <div className={cx('wrapper')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('popper')}>
                 <div className={cx('arrow-popper')} data-popper-arrow />
-                <div className={cx('share-list')}>
+                <div className={cx('list')}>
                     {currentList.map((share, index) => (
                         <Button
                             key={index}
                             large
-                            className={cx('share-item')}
+                            className={cx('item')}
                             leftIcon={<SvgIcon icon={share.icon} />}
                             href={share.href}
                             target={share.href && '_blank'}

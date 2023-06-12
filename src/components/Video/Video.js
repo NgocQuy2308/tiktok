@@ -5,7 +5,7 @@ import SvgIcon from '../SvgIcon/SvgIcon';
 import classNames from 'classnames/bind';
 import styles from './Video.module.scss';
 import { VideoContextKey } from '../Context/VideoContext';
-import TiktokLoading from '../TiktokLoading';
+// import TiktokLoading from '../TiktokLoading';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +18,7 @@ function Video({ isInView, videoInfo, videoId }) {
 
     const [playing, setPlaying] = useState(true);
     const [defaultStatus, setDefaultStatus] = useState(true);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [userInteracting, setUserInteracting] = useState(false);
     const [volume, setVolume] = volumeState;
     const [muted, setMuted] = mutedState;
@@ -31,7 +31,7 @@ function Video({ isInView, videoInfo, videoId }) {
 
     useEffect(() => {
         playing && setDefaultStatus(false);
-        playing ? videoRef.current.play() : videoRef.current.pause();
+        playing ? videoRef.current.play().catch(function() {}) : videoRef.current.pause();
     }, [playing]);
 
     const options = {
@@ -41,19 +41,20 @@ function Video({ isInView, videoInfo, videoId }) {
     };
     const isVisible = useElementOnScreen(options, videoRef);
 
+    
     useEffect(() => {
         if (isVisible) {
             if (!playing) {
-                videoRef.current.play();
-                setPlaying(true);
+                    videoRef.current.play().catch(function() {});
+                    setPlaying(true);
             }
         } else {
             if (playing) {
-                videoRef.current.pause();
-                setPlaying(false);
-                videoRef.current.currentTime = 0;
-                setDefaultStatus(true);
-                setUserInteracting(false);
+                    videoRef.current.pause();
+                    setPlaying(false);
+                    videoRef.current.currentTime = 0;
+                    setDefaultStatus(true);
+                    setUserInteracting(false);
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -129,7 +130,6 @@ function Video({ isInView, videoInfo, videoId }) {
         volumeBarRef.current.onmousemove = (e) => {
             const layerMove = e.layerY;
             if (layerMove === layerOrigin) return;
-            console.log('move');
 
             activeHeight = fullHeight - e.layerY;
 
@@ -169,13 +169,13 @@ function Video({ isInView, videoInfo, videoId }) {
 
     return (
         <div>
-            {loading && playing && <SvgIcon className={cx('video-loading')} icon={<TiktokLoading small />} />}
+            {/* {loading && playing && <SvgIcon className={cx('video-loading')} icon={<TiktokLoading small />} />} */}
             <video
                 className={cx('video', { hidden: defaultStatus })}
                 loop
                 ref={videoRef}
-                onWaiting={() => setLoading(true)}
-                onPlaying={() => setLoading(false)}
+                // onWaiting={() => setLoading(true)}
+                // onPlaying={() => setLoading(false)}
                 muted
                 preload="none"
             >

@@ -10,6 +10,7 @@ function Button({
     href,
     primary = false,
     outline = false,
+    text = false,
     small = false,
     large = false,
     upload = false,
@@ -18,6 +19,7 @@ function Button({
     className,
     children,
     leftIcon,
+    rightIcon,
     onClick,
     ...passProps
 }) {
@@ -37,27 +39,28 @@ function Button({
     }
 
     if (to) {
-        Comp = Link;
         props.to = to;
+        Comp = Link;
     } else if (href) {
-        Comp = 'a';
         props.href = href;
+        Comp = 'a';
     }
     const classes = cx('wrapper', {
         [className]: className,
         primary,
         outline,
+        text,
         small,
         large,
         upload,
         rounded,
         disabled,
-        leftIcon,
     });
     return (
         <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }
@@ -69,12 +72,14 @@ Button.prototype = {
     primary: PropTypes.bool,
     outline: PropTypes.bool,
     small: PropTypes.bool,
+    text: PropTypes.bool,
     large: PropTypes.bool,
     upload: PropTypes.bool,
     disabled: PropTypes.bool,
     rounded: PropTypes.bool,
     children: PropTypes.node.isRequired,
     leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
     onClick : PropTypes.func,
 
 }
